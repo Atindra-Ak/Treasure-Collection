@@ -43,7 +43,11 @@ function setup() {
 }
 
 function draw() {
-
+ boy.x = World.mouseX;
+  if (path.y > 400) {
+      path.y = height / 2;
+    }
+  
   background(0);
   if (gameState === PLAY) {
     if (cashG.isTouching(boy)) {
@@ -59,14 +63,12 @@ function draw() {
       }
     }
 
-    boy.x = World.mouseX;
+   
 
     edges = createEdgeSprites();
     boy.collide(edges);
 
-    if (path.y > 400) {
-      path.y = height / 2;
-    }
+   
 
     createCash();
     createDiamonds();
